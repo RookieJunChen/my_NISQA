@@ -34,7 +34,7 @@ class nisqaModel(object):
         self._loadModel()
         self._loadDatasets()
         self.args['now'] = datetime.datetime.today()
-        
+        print(self.args)
         if self.args['mode']=='main':
             print(yaml.dump(self.args, default_flow_style=None, sort_keys=False))
 
@@ -57,6 +57,7 @@ class nisqaModel(object):
             self.model = nn.DataParallel(self.model)           
         
         if self.args['dim']==True:
+            # print(1)
             y_val_hat, y_val = NL.predict_dim(
                 self.model, 
                 self.ds_val, 
@@ -64,6 +65,7 @@ class nisqaModel(object):
                 self.dev,
                 num_workers=self.args['tr_num_workers'])
         else:
+            # print(2)
             y_val_hat, y_val = NL.predict_mos(
                 self.model, 
                 self.ds_val, 
@@ -72,6 +74,7 @@ class nisqaModel(object):
                 num_workers=self.args['tr_num_workers'])                 
                     
         if self.args['output_dir']:
+            # print(3)
             self.ds_val.df['model'] = self.args['name']
             self.ds_val.df.to_csv(
                 os.path.join(self.args['output_dir'], 'NISQA_results.csv'), 
