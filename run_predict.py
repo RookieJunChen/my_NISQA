@@ -4,6 +4,7 @@
 """
 from nisqa.NISQA_model import nisqaModel
 import argparse
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--mode', required=True, type=str, help='either predict_file, predict_dir, or predict_csv')
@@ -39,6 +40,7 @@ args['tr_bs_val'] = args['bs']
 args['tr_num_workers'] = args['num_workers']
     
 if __name__ == "__main__":
+    os.makedirs(args["output_dir"], exist_ok=True)
     nisqa = nisqaModel(args)
     nisqa.predict()
 
