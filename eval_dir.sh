@@ -11,7 +11,7 @@ python preprocess_wavfile.py \
 python run_predict.py \
     --mode predict_dir \
     --pretrained_model weights/nisqa.tar \
-    --data_dir ${data_dir} \
+    --data_dir ${preprocess_dir} \
     --num_workers 0 \
     --bs 10 \
     --output_dir ${output_dir}
