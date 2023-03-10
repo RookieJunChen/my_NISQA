@@ -1,6 +1,6 @@
 data_dir="/apdcephfs/share_976139/users/thujunchen/data/dns5_blind/V5_BlindTestSet_mono/Track1_Headset/noisy"
 preprocess_dir="/apdcephfs/share_976139/users/thujunchen/data/prepross_temp/BlindTestSet_Track1_Headset_noisy"
-output_dir="/apdcephfs_cq3/share_2906397/users/thujunchen/exp_results/DNS5/nisqa/nois"
+output_dir="/apdcephfs_cq3/share_2906397/users/thujunchen/exp_results/DNS5/nisqa/noisy"
 
 python preprocess_wavfile.py \
     --input_dir ${data_dir} \
